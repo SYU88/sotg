@@ -16,3 +16,5 @@ server/db/config.js
 !.elasticbeanstalk/*.global.yml
 spike
 server/config/config.js
+stream.sh
+handle.sh

@@ -1,0 +1,7 @@
+#!/bin/bash
+export RDS_HOSTNAME=YOUR_HOSTNAME
+export RDS_USERNAME=YOUR_USERNAME
+export RDS_PASSWORD=YOUR_PASSWORD
+export RDS_DB_NAME=YOUR_DATABASE
+export PORT=80
+node streaming/server.js
