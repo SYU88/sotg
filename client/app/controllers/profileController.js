@@ -15,7 +15,7 @@ angular.module('profileCtrl', [])
     });
 
     vm.deleteKeyword = function(keyword){
-      var queryURL = 'api/keywords?keyword=' + keyword.keyword + '&apiKey=' + vm.apiKey;
+      var queryURL = 'api/keywords?keyword=' + encodeURIComponent(keyword.keyword) + '&apiKey=' + vm.apiKey;
       QueryBuilder.makeQuery(queryURL, 'DELETE', function(){})
       .then(function(){
         Auth.keywords(vm)
