@@ -22,7 +22,28 @@ module.exports = function(grunt) {
         atBegin: true
       }
     },
-
+    concat: {
+      options: {
+        // define a string to put between each file in the concatenated output
+        separator: ';'
+      },
+      dist: {
+        // the files to concatenate
+        src: [ 'client/app/factories/*.js', 'client/app/controllers/*.js', 'client/app/app.js'],
+        // the location of the resulting JS file
+        dest: 'client/dist/build.js'
+      }
+    },
+    uglify: {
+      options: {
+        mangle: false
+      },
+      my_target: {
+        files: {
+          'client/dist/build.min.js': ['client/dist/build.js']
+        }
+      }
+    },
     mochaTest: {
       src: ['tests/**/*.js']
     },
@@ -54,6 +75,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-jsdoc');
   grunt.loadNpmTasks('grunt-auto-install');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+
+  grunt.registerTask('minify', ['jshint', 'concat', 'uglify']);
 
   grunt.registerTask('default', ['jshint', 'mochaTest', 'jsdoc']);
   grunt.registerTask('test', 'mochaTest');

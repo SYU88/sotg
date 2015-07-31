@@ -124,7 +124,7 @@ var animate = function () {
 
 var render = function () {
   camera.lookAt( scene.position );
-  group.rotation.y -= 0.005;
+  group.rotation.y += 0.005;
   renderer.render( scene, camera );
 
 };
