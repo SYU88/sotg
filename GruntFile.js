@@ -31,7 +31,7 @@ module.exports = function(grunt) {
         // the files to concatenate
         src: [ 'client/app/factories/*.js', 'client/app/controllers/*.js', 'client/app/app.js'],
         // the location of the resulting JS file
-        dest: 'client/dist/build.js'
+        dest: 'client/dest/build.js'
       }
     },
     uglify: {
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
       },
       my_target: {
         files: {
-          'client/dist/build.min.js': ['client/dist/build.js']
+          'client/dest/build.min.js': ['client/dest/build.js']
         }
       }
     },
